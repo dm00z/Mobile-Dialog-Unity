@@ -94,28 +94,41 @@ UIDatePicker *datePicker;
         
     
     [datePicker addTarget:self action:@selector(DP_changeDate:) forControlEvents:UIControlEventValueChanged];
-    switch (mode) {
-        case 1:
-            datePicker.datePickerMode = UIDatePickerModeTime;
-            break;
-            
-        case 2:
-            datePicker.datePickerMode = UIDatePickerModeDate;
-			NSDate *dateTraded = [NSDate dateWithTimeIntervalSince1970 :unix];
-			[datePicker setDate:dateTraded];
-            break;
-            
-        case 3:
-            datePicker.datePickerMode = UIDatePickerModeDateAndTime;
-            break;
-            
-        case 4:
-            datePicker.datePickerMode = UIDatePickerModeCountDownTimer;
-            break;
-            
-        default:
-            break;
+	
+    if (mode == 1) {
+        datePicker.datePickerMode = UIDatePickerModeTime;
+    } else if (mode == 2) {
+        datePicker.datePickerMode = UIDatePickerModeDate;
+        NSDate *dateTraded = [NSDate dateWithTimeIntervalSince1970 :unix];
+        [datePicker setDate:dateTraded];
+    } else if (mode == 3) {
+        datePicker.datePickerMode = UIDatePickerModeDateAndTime;
+    } else if (mode == 4) {
+        datePicker.datePickerMode = UIDatePickerModeCountDownTimer;
     }
+	
+//     switch (mode) {
+//         case 1:
+//             datePicker.datePickerMode = UIDatePickerModeTime;
+//             break;
+            
+//         case 2:
+//             datePicker.datePickerMode = UIDatePickerModeDate;
+// 			NSDate *dateTraded = [NSDate dateWithTimeIntervalSince1970 :unix];
+// 			[datePicker setDate:dateTraded];
+//             break;
+            
+//         case 3:
+//             datePicker.datePickerMode = UIDatePickerModeDateAndTime;
+//             break;
+            
+//         case 4:
+//             datePicker.datePickerMode = UIDatePickerModeCountDownTimer;
+//             break;
+            
+//         default:
+//             break;
+//     }
 	
     
     // NSLog(@"dtp mode: %ld", (long)datePicker.datePickerMode);
